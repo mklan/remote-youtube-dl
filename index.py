@@ -23,7 +23,7 @@ def handle_download():
 
     ydl_opts = {
         'format': 'bestaudio' if onlyAudio else 'best',
-        'o' : '~/Videos/%(title)s.%(ext)s' #this does not work right now
+        'outtmpl' : '~/Videos/%(title)s.%(ext)s' #TODO this needs to be configurable
     }
 
     youtube_download(id, ydl_opts)
@@ -33,9 +33,17 @@ def handle_download():
 def handle_help(code = 200):
     return response(code, 'provide an id argument with a value of a youtube video id and an optional boolean flag onlyAudio')
 
+
+
+
 def youtube_download(id, ydl_opts):
     with youtube_dl.YoutubeDL(ydl_opts) as ydl:
-        ydl.download(['https://www.youtube.com/watch?v='+id])
+        try:
+            ydl.download(['https://www.youtube.com/watch?v='+id])
+        except Exception as error:
+            #TODO an error if the video was not found needs to be thrown, this does not work right now
+            return response(500, 'error')
+
 
 def response(code, message):
     response = jsonify({'message': message})
