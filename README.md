@@ -39,6 +39,6 @@ FLASK_APP=__init__.py flask run
 key is only mandatory if `USE_AUTH='True'` 
 onlyAudio is optional and defaults to `False`
 
-## Deploy
+## Deployment
 
 TODO
