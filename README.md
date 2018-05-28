@@ -12,12 +12,12 @@ optionally set environment variables to configure the service
 ```bash
 export YDL_DL_PATH='/path/to/downloads' # defaults to the current dir (ommit the trailing '/' !)
 export YDL_USE_AUTH='True' # defaults to False
-export YDL_HASHED_KEY='yourHashedKey' # mandatory if USE_AUTH is set to 'True'
+export YDL_HASHED_KEY='yourHashedKey' # mandatory if YDL_USE_AUTH is set to 'True'
 ```
 
 ### Generate hash for authentication
 
-if you set `USE_AUTH='True'` you need to generate a hash for your auth key by running the following python script:
+if you set `YDL_USE_AUTH='True'` you need to generate a hash for your auth key by running the following python script:
 
 ```python
 
@@ -26,7 +26,7 @@ if you set `USE_AUTH='True'` you need to generate a hash for your auth key by ru
 
 ```
 
-the result needs to be exported as the `HASHED_KEY` environment variable
+the result needs to be exported as the `YDL_HASHED_KEY` environment variable
 
 ## Development
 
@@ -36,7 +36,7 @@ FLASK_APP=__init__.py flask run
 
 `http://localhost:5000/ydl?key=<YOUR_KEY>&id=<YOUTUBE_VIDEO_ID>&onlyAudio=True`
 
-key is only mandatory if `USE_AUTH='True'` 
+key is only mandatory if `YDL_USE_AUTH='True'` 
 onlyAudio is optional and defaults to `False`
 
 ## Deployment
