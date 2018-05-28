@@ -23,11 +23,11 @@ def handle_index():
 @app.route("/ydl", methods=["GET"])
 def handle_download():
 
-    id = request.args.get('id')
+    youtubeId = request.args.get('id')
     onlyAudio = request.args.get('onlyAudio')
     key = request.args.get('key')
 
-    if not id:
+    if not youtubeId:
         return handle_help(400)
 
     # Authentication
@@ -39,19 +39,19 @@ def handle_download():
         'outtmpl': DL_PATH+'/%(title)s.%(ext)s'
     }
 
-    youtube_download(id, ydl_opts)
+    youtube_download(youtubeId, ydl_opts)
     return response(200, 'download started...')
 
 
 @app.route("/help", methods=["GET"])
 def handle_help(code=200):
-    return response(code, 'how to use this service:  /ydl?id=<YOUTUBE_ID>&key=<YOUR_SECRET>onlyAudio=false')
+    return response(code, 'how to use this service:  /ydl?id=<YOUTUBE_ID>&key=<YOUR_SECRET_KEY>onlyAudio=false')
 
 
-def youtube_download(id, ydl_opts):
+def youtube_download(youtubeId, ydl_opts):
     with youtube_dl.YoutubeDL(ydl_opts) as ydl:
         try:
-            ydl.download(['https://www.youtube.com/watch?v='+id])
+            ydl.download(['https://www.youtube.com/watch?v='+youtubeId])
         # TODO exception does not work due to async shizzle
         except Exception as error:
             return response(500, 'error')
