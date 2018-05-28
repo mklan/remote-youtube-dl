@@ -28,7 +28,7 @@ if you set `USE_AUTH='True'` you need to generate a hash for your auth key by ru
 
 the result needs to be exported as the `HASHED_KEY` environment variable
 
-## Usage
+## Development
 
 ```bash
 FLASK_APP=__init__.py flask run
@@ -38,3 +38,7 @@ FLASK_APP=__init__.py flask run
 
 key is only mandatory if `USE_AUTH='True'` 
 onlyAudio is optional and defaults to `False`
+
+## Deploy
+
+TODO
