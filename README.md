@@ -1,5 +1,5 @@
 # remote-youtube-dl
-Download youtube videos to your server/NAS/local machine
+Download youtube videos to your server/NAS/local machine using a simple HTTP GET request
 
 ## Setup
 
