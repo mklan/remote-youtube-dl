@@ -7,7 +7,7 @@ Download youtube videos to your server/NAS/local machine using a simple HTTP GET
 python setup.py install
 ```
 
-set environment variables to configure the service
+optionally set environment variables to configure the service
 
 ```bash
 export YDL_DL_PATH='/path/to/downloads' # defaults to the current dir (ommit the trailing '/' !)
