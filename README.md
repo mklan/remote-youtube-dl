@@ -15,7 +15,7 @@ export USE_AUTH='True' # defaults to False
 export HASHED_KEY='yourHashedKey' # mandatory if USE_AUTH is set to 'True'
 ```
 
-### Generate Hash for Authentication
+### Generate hash for authentication
 
 if you set `USE_AUTH='True'` you need to generate a hash for your auth key by running the following python script:
 
