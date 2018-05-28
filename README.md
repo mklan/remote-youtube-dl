@@ -11,8 +11,8 @@ optionally set environment variables to configure the service
 
 ```bash
 export YDL_DL_PATH='/path/to/downloads' # defaults to the current dir (ommit the trailing '/' !)
-export USE_AUTH='True' # defaults to False
-export HASHED_KEY='yourHashedKey' # mandatory if USE_AUTH is set to 'True'
+export YDL_USE_AUTH='True' # defaults to False
+export YDL_HASHED_KEY='yourHashedKey' # mandatory if USE_AUTH is set to 'True'
 ```
 
 ### Generate hash for authentication
