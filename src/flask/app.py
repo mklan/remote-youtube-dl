@@ -5,8 +5,9 @@ from flask import Flask
 from flask import request
 from flask import jsonify
 
-import youtube_dl
 from pbkdf2 import crypt
+
+from src.services.downloader import youtube_download
 
 app = Flask(__name__)
 
@@ -46,15 +47,6 @@ def handle_download():
 @app.route("/help", methods=["GET"])
 def handle_help(code=200):
     return response(code, 'how to use this service:  /ydl?id=<YOUTUBE_ID>&key=<YOUR_SECRET_KEY>onlyAudio=false')
-
-
-def youtube_download(youtubeId, ydl_opts):
-    with youtube_dl.YoutubeDL(ydl_opts) as ydl:
-        try:
-            ydl.download(['https://www.youtube.com/watch?v='+youtubeId])
-        # TODO exception does not work due to async shizzle
-        except Exception as error:
-            return response(500, 'error')
 
 
 def response(code, message):
