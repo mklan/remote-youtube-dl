@@ -20,8 +20,13 @@ def execute():
     onlyAudio = arguments['onlyAudio']
     key = arguments['key']
 
+    if not youtubeId:
+        print("no youtube id provided")
+        return
+
     if USE_AUTH and not HASHED_KEY == crypt(key, HASHED_KEY):
         print('auth failed: Authentication is active and a wrong key was provided')
+        return
 
     ydl_opts = {
         'format': 'bestaudio' if onlyAudio else 'best',
