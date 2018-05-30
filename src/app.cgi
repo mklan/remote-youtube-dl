@@ -1,5 +1,5 @@
 #!/usr/bin/python
 from wsgiref.handlers import CGIHandler
-from flask_app import app
+from src.flask_app import app
 
 CGIHandler().run(app)
