@@ -37,7 +37,8 @@ def handle_download():
 
     ydl_opts = {
         'format': 'bestaudio' if onlyAudio else 'best',
-        'outtmpl': DL_PATH+'/%(title)s.%(ext)s'
+        'outtmpl': DL_PATH+'/%(title)s.%(ext)s',
+        'nocheckcertificate': True
     }
 
     youtube_download(youtubeId, ydl_opts)

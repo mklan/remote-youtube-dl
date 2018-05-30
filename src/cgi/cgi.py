@@ -13,7 +13,6 @@ DL_PATH = os.environ.get('YDL_DL_PATH', '.')
 
 
 def execute():
-    print('haa')
     arguments = cgi.FieldStorage()
 
     youtubeId = arguments['id']
@@ -30,7 +29,8 @@ def execute():
 
     ydl_opts = {
         'format': 'bestaudio' if onlyAudio else 'best',
-        'outtmpl': DL_PATH+'/%(title)s.%(ext)s'
+        'outtmpl': DL_PATH+'/%(title)s.%(ext)s',
+        'nocheckcertificate': True
     }
 
     youtube_download(youtubeId, ydl_opts)
