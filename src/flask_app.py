@@ -7,7 +7,7 @@ from flask import jsonify
 
 from pbkdf2 import crypt
 
-from src.services.downloader import youtube_download
+from services.downloader import youtube_download
 
 app = Flask(__name__)
 
@@ -54,3 +54,6 @@ def response(code, message):
     response = jsonify({'message': message})
     response.status_code = code
     return response
+
+if __name__ == "__main__":
+    app.run()
